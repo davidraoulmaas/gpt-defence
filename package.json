@@ -1,0 +1,23 @@
+{
+  "name": "gpt-defence",
+  "version": "0.1.0",
+  "description": "A tower defence game where towers are generated from LLM prompts",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "simulation",
+    "shared",
+    "schemas"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "build": "npm run build --workspace=shared && npm run build --workspace=schemas && npm run build --workspace=server && npm run build --workspace=client",
+    "simulate": "npm run start --workspace=simulation",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.5"
+  }
+}
